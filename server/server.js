@@ -13,7 +13,7 @@ const options = {
 };
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/App', options);
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/App', options);
 
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
